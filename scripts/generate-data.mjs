@@ -150,9 +150,19 @@ function typeFor(card) {
   return 'Story';
 }
 
+function imageDimensionsFromUrl(url, fallback) {
+  const match = url.match(/-(\d+)-(\d+)\.[a-z0-9]+(?:\?.*)?$/i);
+  if (!match) return fallback;
+  return { width: Number(match[1]), height: Number(match[2]) };
+}
+
 const cards = source.cards.map(({ officialMetadata, localFiles, verification }) => {
   const type = typeFor(officialMetadata);
   const character = characters.has(officialMetadata.name) ? officialMetadata.name : 'Other';
+  const metadataDimensions = imageDimensionsFromUrl(officialMetadata.image, {
+    width: officialMetadata.imageWidth,
+    height: officialMetadata.imageHeight,
+  });
 
   return ({
   id: officialMetadata.id,
@@ -173,9 +183,11 @@ const cards = source.cards.map(({ officialMetadata, localFiles, verification }) 
   sourceImage: officialMetadata.image,
   sourceBackImage: officialMetadata.backImage,
   dimensions: {
-    metadata: { width: officialMetadata.imageWidth, height: officialMetadata.imageHeight },
+    metadata: metadataDimensions,
     actual: verification.frontDimensions,
-    matchesMetadata: verification.frontDimensionsMatchMetadata,
+    matchesMetadata:
+      verification.frontDimensions.width === metadataDimensions.width
+      && verification.frontDimensions.height === metadataDimensions.height,
   },
   });
 });
