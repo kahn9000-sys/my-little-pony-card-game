@@ -215,7 +215,7 @@ export default function App() {
   const heroCards = [
     catalog.cards.find((card) => card.name === 'Twilight Sparkle' && card.rarity === 'RR※'),
     catalog.cards.find((card) => card.name === 'Fluttershy' && card.rarity === 'RR※'),
-    catalog.cards.find((card) => card.name === 'Pinkie Pie' && card.rarity === 'RR※'),
+    catalog.cards.find((card) => card.code === '※BP01-RR05'),
   ].filter(Boolean) as Card[];
 
   function resetFilters() {
