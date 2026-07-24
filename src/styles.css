@@ -201,6 +201,7 @@ footer { min-height: 260px; display: flex; justify-content: space-between; align
   .header-glow { top: -360px; left: 80vw; width: 640px; }
   .gallery-section { scroll-margin-top: 64px; }
   .filters { top: 64px; }
+  .flip-hint { display: none; }
 }
 
 @media (max-width: 430px) {
@@ -219,7 +220,7 @@ footer { min-height: 260px; display: flex; justify-content: space-between; align
 }
 
 @media (hover: none) {
-  .flip-hint { bottom: 12px; padding: 8px 13px 7px; opacity: .9; transform: translate(-50%, 0); }
+  .flip-hint { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {

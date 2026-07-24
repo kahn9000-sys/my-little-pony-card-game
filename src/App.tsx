@@ -146,7 +146,7 @@ function CardDialog({ card, cards, onSelect, onClose }: { card: Card; cards: Car
           <h2 id="card-dialog-title"><span>{card.name}</span></h2>
           <div className="detail-grid">
             <span><small className="detail-label"><b>CARD NO.</b></small><strong>{card.code}</strong></span>
-            <span><small className="detail-label"><b>RARITY</b></small><strong><b>{card.rarity}</b><small>{card.rarityNameZh}</small></strong></span>
+            <span><small className="detail-label"><b>RARITY</b></small><strong><b>{card.rarity}</b></strong></span>
             <span><small className="detail-label"><b>CHARACTER</b></small><strong><b>{card.character}</b><small>{card.characterZh}</small></strong></span>
             <span><small className="detail-label"><b>SOURCE</b></small><strong><b>KAYOU OFFICIAL</b><small>卡游官方</small></strong></span>
           </div>
